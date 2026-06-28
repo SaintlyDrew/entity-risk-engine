@@ -1,11 +1,15 @@
-# Detection Platform
+# Entity Risk Scoring Engine
 
-[![CI](https://github.com/SaintlyDrew/detection-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/SaintlyDrew/detection-platform/actions/workflows/ci.yml)
+[![CI](https://github.com/SaintlyDrew/entity-risk-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/SaintlyDrew/entity-risk-engine/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
-A generic, configurable, **leakage-safe** detection platform — a clean-room reference
-implementation of the signal-to-decision pattern behind insider-risk, fraud, and AML
-surveillance systems. Pure Python, locally runnable, test-led.
+A generic, **leakage-safe** engine that fuses signals from many detectors into one
+explainable, prioritized **risk score per entity** — then lets you validate a detection
+change before it ships. Pure Python, locally runnable, test-led.
+
+> **The scoring core beneath a UEBA platform and a fraud-decisioning engine alike.** Same
+> shape — peer/behavioral signals + rules + models → governed risk score → prioritized
+> queue → validate-before-ship — proven across **insider risk, payments fraud, and AML**.
 
 > **Status:** early build. The architecture and contracts are in place; the runnable
 > spine is landing component by component. See [Roadmap](#roadmap).
