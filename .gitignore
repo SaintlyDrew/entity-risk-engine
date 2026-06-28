@@ -1,0 +1,19 @@
+# Internal build / staging notes — never published
+_build/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Local data / scratch
+*.sqlite
+*.db
+.DS_Store
