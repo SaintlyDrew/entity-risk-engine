@@ -15,7 +15,15 @@ from datetime import datetime
 from typing import Mapping, Sequence
 
 from .consolidate.consolidate import consolidate
-from .core.contracts import Case, FeatureProvider, FeatureView, Score, Signal
+from .core.contracts import (
+    Case,
+    Detector,
+    FeatureProvider,
+    FeatureView,
+    Score,
+    Signal,
+    SubjectRecord,
+)
 from .observe.audit import RunReport, summarize
 from .rank.ranker import rank
 from .score.judge import CompositeJudge
@@ -35,15 +43,34 @@ def run_pipeline(
     feature_provider: FeatureProvider,
     config: Mapping,
     as_of: datetime,
+    detectors: Sequence[Detector] = (),
 ) -> PipelineResult:
-    # assemble: many signals -> one record per subject
-    records = consolidate(signals, as_of)
+    # subject universe: everyone an ingested signal mentions, plus everyone the
+    # provider knows about as_of (so an in-platform detector can surface a subject who
+    # had no upstream signal). Point-in-time: future-only subjects are excluded.
+    universe = sorted(
+        {s.subject_id for s in signals} | set(feature_provider.known_subjects(as_of))
+    )
 
     # measure: point-in-time features per subject (leakage-guarded in the provider)
-    subject_ids = sorted({r.subject_id for r in records})
-    feature_views = {
-        sid: feature_provider.compute(sid, as_of) for sid in subject_ids
+    feature_views = {sid: feature_provider.compute(sid, as_of) for sid in universe}
+
+    # suggest: in-platform detectors (rules, models) emit Signals from features. A model
+    # is just a Detector here — it has no special path through the platform.
+    detector_signals: list[Signal] = []
+    for detector in detectors:
+        for sid in universe:
+            detector_signals.extend(detector.emit(sid, feature_views[sid], as_of))
+
+    # assemble: many signals (ingested + detector-emitted) -> one record per subject.
+    # Every known subject is judged, not only those carrying a signal: the cited rules
+    # in the score layer are population-wide detections, so a rule (e.g. velocity) must
+    # be able to surface a subject that no upstream system flagged.
+    by_subject = {
+        r.subject_id: r
+        for r in consolidate(list(signals) + detector_signals, as_of)
     }
+    records = [by_subject.get(sid, SubjectRecord(sid, as_of, ())) for sid in universe]
 
     # judge: governed composite per subject
     judge = CompositeJudge.from_config(config, feature_views)

@@ -1,0 +1,2 @@
+{"subject_id": "C-201", "source_id": "rules.chargeback_ring", "kind": "ingested", "value": 1.0, "as_of": "2026-03-01T11:00:00", "evidence": {"ring_id": "RG-7", "confirmed_chargebacks": 3}}
+{"subject_id": "C-204", "source_id": "list.watchlist", "kind": "ingested", "value": 1.0, "as_of": "2026-02-28T20:00:00", "evidence": {"list": "issuer-watchlist"}}

@@ -156,9 +156,13 @@ class Detector(Protocol):
 
 @runtime_checkable
 class FeatureProvider(Protocol):
-    """Computes a point-in-time FeatureView for a subject. Must not leak past ``as_of``."""
+    """Computes point-in-time features. Must not leak past ``as_of``."""
 
     def compute(self, subject_id: str, as_of: datetime) -> FeatureView: ...
+
+    def known_subjects(self, as_of: datetime) -> Sequence[str]:
+        """Subjects observable at or before ``as_of`` (the point-in-time roster)."""
+        ...
 
 
 @runtime_checkable

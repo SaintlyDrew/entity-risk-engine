@@ -1,0 +1,27 @@
+{
+  "domain": "payments_fraud",
+  "description": "Card-fraud instantiation. Same platform, different config + feature provider + a model detector.",
+  "signal_points": {
+    "rule": 35,
+    "ingested": 30,
+    "model": 28
+  },
+  "feature_rules": [
+    {
+      "id": "R-HIGH-VELOCITY",
+      "feature": "txn_count_1d",
+      "op": ">=",
+      "threshold": 5,
+      "weight": 35,
+      "reason": "transaction velocity >= 5 in the trailing 24h"
+    }
+  ],
+  "tiers": [
+    { "tier": "critical", "min": 70 },
+    { "tier": "high", "min": 45 },
+    { "tier": "medium", "min": 20 },
+    { "tier": "low", "min": 0 }
+  ],
+  "capacity": 4,
+  "advisory_cap": "medium"
+}

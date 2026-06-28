@@ -58,16 +58,18 @@ is the contract, the implementation is swappable.
 
 ## Domains (configuration, not code)
 
-- **`examples/insider_risk/`** — the fleshed reference domain (runnable today).
-- **`examples/payments_fraud/`** *(planned, Phase 2)* — a second real config; will double as the
-  executable proof that the *same spine* runs unchanged on a different domain.
+- **`examples/insider_risk/`** — the fleshed reference domain (runnable).
+- **`examples/payments_fraud/`** — a second runnable domain; wires an in-platform `ModelDetector`
+  and is the *executable* proof that the same spine runs unchanged on a different domain
+  (`tests/test_genericity.py`).
 - **`examples/aml/`** *(planned)* — a thin placeholder showing the extension point.
 
 ## Quickstart
 
 ```bash
-# run the insider-risk domain end to end (stdlib only — no install needed)
+# run a domain end to end (stdlib only — no install needed)
 python -m examples.insider_risk.run
+python -m examples.payments_fraud.run     # same platform, different config + a model
 
 # run the test suite (leakage-invariant, golden-trace, advisory-floor, consolidation)
 pip install -e ".[dev]"   # pytest + dev extras
@@ -82,7 +84,7 @@ The demo prints a run report and the surfaced case queue, and writes cases to
 
 - [x] Phase 0 — typed contracts + component skeleton + this README
 - [x] Phase 1 — runnable end-to-end spine on the insider domain + golden-trace & leakage tests
-- [ ] Phase 2 — pluggable models seam + the payments config + genericity test
+- [x] Phase 2 — pluggable `ModelDetector` seam + a second runnable domain (payments) + genericity test
 - [ ] Phase 3 — sandbox/backtest harness (precision@K, lift, walk-forward) + drift check
 - [ ] Phase 4 — docs (architecture / PRD / test strategy) + quickstart polish
 

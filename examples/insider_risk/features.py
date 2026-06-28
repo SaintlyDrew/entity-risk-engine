@@ -79,7 +79,7 @@ class InsiderFeatureProvider:
             for e in within_window(rows, as_of, self.WINDOW_DAYS, lambda e: e.ts)
         )
 
-    def _known_subjects(self, as_of: datetime) -> list[str]:
+    def known_subjects(self, as_of: datetime) -> list[str]:
         """Subjects observable at or before ``as_of``.
 
         A peer baseline must not include employees whose only activity lies in the
@@ -91,7 +91,7 @@ class InsiderFeatureProvider:
         own = self._after_hours_30d(subject_id, as_of)
         peers = [
             self._after_hours_30d(s, as_of)
-            for s in self._known_subjects(as_of)
+            for s in self.known_subjects(as_of)
             if s != subject_id  # leave-one-out, point-in-time peer baseline
         ]
         return FeatureView(
