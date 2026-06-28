@@ -88,13 +88,19 @@ The demo prints a run report and the surfaced case queue, and writes cases to
 `examples/insider_risk/out/` (JSONL + SQLite). A new domain is a new folder under
 `examples/` with its own config + feature provider — the platform code is untouched.
 
+## Documentation
+
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — the verb-spine, the seams, the invariants, and why the boundaries are where they are.
+- [docs/PRD.md](docs/PRD.md) — the product framing: problem, users, capabilities, success metrics.
+- [docs/TEST_STRATEGY.md](docs/TEST_STRATEGY.md) — the test layers mapped to the failure modes they guard.
+
 ## Roadmap
 
 - [x] Phase 0 — typed contracts + component skeleton + this README
 - [x] Phase 1 — runnable end-to-end spine on the insider domain + golden-trace & leakage tests
 - [x] Phase 2 — pluggable `ModelDetector` seam + a second runnable domain (payments) + genericity test
 - [x] Phase 3 — sandbox/backtest harness (precision@K, lift, leakage-free walk-forward, A/B comparison)
-- [ ] Phase 4 — docs (architecture / PRD / test strategy) + drift check + quickstart polish
+- [x] Phase 4 — docs (architecture / PRD / test strategy) + drift check (PSI) + AML extension stub
 
 ## License
 
