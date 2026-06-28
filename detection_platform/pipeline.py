@@ -55,7 +55,7 @@ def run_pipeline(
         as_of,
         tiers=config["tiers"],
         capacity=int(config["capacity"]),
-        advisory_cap=config.get("advisory_cap", "high"),
+        advisory_cap=config["advisory_cap"],
     )
 
     # observe: a run that explains itself

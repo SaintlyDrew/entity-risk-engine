@@ -63,6 +63,7 @@ class SqliteCaseSink:
         self.path = Path(self.path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(self.path)
+        self._conn.execute("DROP TABLE IF EXISTS cases")  # truncate per run (match JSONL)
         self._conn.execute(
             """CREATE TABLE IF NOT EXISTS cases (
                    subject_id TEXT, score REAL, tier TEXT,

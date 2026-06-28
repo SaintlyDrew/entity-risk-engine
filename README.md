@@ -58,10 +58,10 @@ is the contract, the implementation is swappable.
 
 ## Domains (configuration, not code)
 
-- **`examples/insider_risk/`** — the fleshed reference domain.
-- **`examples/payments_fraud/`** — a second real config; doubles as the executable proof that
-  the *same spine* runs unchanged on a different domain.
-- **`examples/aml/`** — a thin placeholder showing the extension point.
+- **`examples/insider_risk/`** — the fleshed reference domain (runnable today).
+- **`examples/payments_fraud/`** *(planned, Phase 2)* — a second real config; will double as the
+  executable proof that the *same spine* runs unchanged on a different domain.
+- **`examples/aml/`** *(planned)* — a thin placeholder showing the extension point.
 
 ## Quickstart
 
@@ -70,7 +70,7 @@ is the contract, the implementation is swappable.
 python -m examples.insider_risk.run
 
 # run the test suite (leakage-invariant, golden-trace, advisory-floor, consolidation)
-pip install pytest        # dev dependency
+pip install -e ".[dev]"   # pytest + dev extras
 python -m pytest -q
 ```
 

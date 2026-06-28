@@ -9,13 +9,13 @@ place and provable by a single test.
 from __future__ import annotations
 
 from datetime import datetime, timedelta
-from typing import Iterable, Sequence, TypeVar
+from typing import Callable, Iterable, Sequence, TypeVar
 
 T = TypeVar("T")
 
 
 def as_of_filter(
-    events: Iterable[T], as_of: datetime, ts: "callable[[T], datetime]"
+    events: Iterable[T], as_of: datetime, ts: Callable[[T], datetime]
 ) -> list[T]:
     """Return only events whose timestamp is at or before ``as_of``.
 
@@ -29,7 +29,7 @@ def within_window(
     events: Iterable[T],
     as_of: datetime,
     window_days: int,
-    ts: "callable[[T], datetime]",
+    ts: Callable[[T], datetime],
 ) -> list[T]:
     """Events in the trailing ``window_days`` ending at ``as_of`` (inclusive).
 

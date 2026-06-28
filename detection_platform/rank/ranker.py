@@ -47,7 +47,7 @@ def rank(
     as_of: datetime,
     tiers: Sequence[Mapping],
     capacity: int,
-    advisory_cap: str = "high",
+    advisory_cap: str,
 ) -> RankResult:
     """Prioritize scores into a capacity-bounded queue of Cases.
 
