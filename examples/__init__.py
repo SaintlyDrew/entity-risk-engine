@@ -1,1 +1,1 @@
-"""Worked-domain instantiations of the detection platform (configuration, not code)."""
+"""Worked-domain instantiations of Arbiter (configuration, not code)."""

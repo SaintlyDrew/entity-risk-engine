@@ -1,7 +1,7 @@
 """Insider-risk feature provider.
 
 This is the *domain* half of the seam: the platform supplies the point-in-time
-machinery (``detection_platform.features.pointintime``); this file decides what to
+machinery (``arbiter.features.pointintime``); this file decides what to
 measure for insider risk. Swapping domains means writing a sibling provider — the
 platform does not change.
 
@@ -24,8 +24,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-from detection_platform.core.contracts import FeatureView
-from detection_platform.features.pointintime import within_window, zscore
+from arbiter.core.contracts import FeatureView
+from arbiter.features.pointintime import within_window, zscore
 
 
 @dataclass(frozen=True)
@@ -52,7 +52,7 @@ def load_events(path: str | Path) -> list[Event]:
 
 
 class InsiderFeatureProvider:
-    """A :class:`~detection_platform.core.contracts.FeatureProvider` for insider risk."""
+    """A :class:`~arbiter.core.contracts.FeatureProvider` for insider risk."""
 
     WINDOW_DAYS = 30
 

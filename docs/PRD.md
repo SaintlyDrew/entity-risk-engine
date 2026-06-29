@@ -1,4 +1,4 @@
-# Product Requirements — Entity Risk Scoring Engine (reference)
+# Product Requirements — Arbiter (Entity Risk Scoring Engine, reference)
 
 > A product framing for a reference system. It states the problem, the users, and the
 > capability set the architecture delivers — the "why" behind the code.

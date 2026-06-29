@@ -1,6 +1,6 @@
 """Models — suggest (advisory).
 
-A model is not privileged in this platform. It is a :class:`~detection_platform.core
+A model is not privileged in this platform. It is a :class:`~arbiter.core
 .contracts.Detector` that emits ``kind="model"`` Signals from features — exactly like a
 rule, except its output is a calibrated probability rather than a 0/1. Plugging in a
 real model (XGBoost, a torch net, a vendor score) means writing one ``ModelDetector``

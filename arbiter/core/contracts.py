@@ -1,4 +1,4 @@
-"""Typed contracts for the detection platform.
+"""Typed contracts for Arbiter (the Entity Risk Scoring Engine).
 
 This module is the architectural spine. Every component communicates through the
 records and protocols defined here — nothing crosses a seam untyped. Read this file

@@ -1,6 +1,6 @@
 """Observe — feature drift.
 
-A detection platform decays silently: the world shifts, a feature's distribution moves,
+A risk-scoring engine decays silently: the world shifts, a feature's distribution moves,
 and yesterday's calibrated thresholds quietly stop meaning what they meant. This module
 is the early warning — one standard metric, the Population Stability Index (PSI),
 comparing a feature's current distribution against a stored baseline.

@@ -47,7 +47,7 @@ class FeatureRule:
 
 
 class CompositeJudge:
-    """A config-driven :class:`~detection_platform.core.contracts.Judge`.
+    """A config-driven :class:`~arbiter.core.contracts.Judge`.
 
     ``signal_points`` maps a SignalKind to its maximum point contribution (a Signal
     contributes ``value * points``). ``feature_rules`` are cited rules evaluated

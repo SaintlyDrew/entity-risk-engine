@@ -1,7 +1,7 @@
 [project]
-name = "entity-risk-engine"
+name = "arbiter-risk-engine"
 version = "0.1.0"
-description = "A generic, leakage-safe entity-risk-scoring engine: fuse detector signals into one explainable, prioritized risk score per entity (clean-room reference)."
+description = "Arbiter — Entity Risk Scoring Engine: fuse detector signals into one explainable, prioritized risk score per entity (clean-room reference)."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"

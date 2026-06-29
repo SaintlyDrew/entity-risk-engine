@@ -10,15 +10,15 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from detection_platform.core.contracts import (
+from arbiter.core.contracts import (
     FeatureView,
     Signal,
     SignalKind,
     SubjectRecord,
     Tier,
 )
-from detection_platform.rank.ranker import rank
-from detection_platform.score.judge import CompositeJudge
+from arbiter.rank.ranker import rank
+from arbiter.score.judge import CompositeJudge
 
 AS_OF = datetime(2026, 3, 1)
 CONFIG = {

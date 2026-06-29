@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from detection_platform.observe.drift import check_drift, psi
+from arbiter.observe.drift import check_drift, psi
 
 
 def test_identical_distribution_has_zero_psi() -> None:

@@ -1,9 +1,11 @@
-# Entity Risk Scoring Engine
+# Arbiter
 
-[![CI](https://github.com/SaintlyDrew/entity-risk-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/SaintlyDrew/entity-risk-engine/actions/workflows/ci.yml)
+**Entity Risk Scoring Engine** — fuse many detectors' signals into one explainable, prioritized **risk score per entity**.
+
+[![CI](https://github.com/SaintlyDrew/arbiter/actions/workflows/ci.yml/badge.svg)](https://github.com/SaintlyDrew/arbiter/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
-A generic, **leakage-safe** engine that fuses signals from many detectors into one
+**Arbiter** is a generic, **leakage-safe** engine that fuses signals from many detectors into one
 explainable, prioritized **risk score per entity** — then lets you validate a detection
 change before it ships. Pure Python, locally runnable, test-led.
 
@@ -35,7 +37,7 @@ a rewrite.
               sandbox (validate / backtest) ── replays the whole spine on labeled history
 ```
 
-Everything crosses a seam as a **typed contract** ([`core/contracts.py`](detection_platform/core/contracts.py)) — read that file first; the rest of the platform is implementations of those interfaces.
+Everything crosses a seam as a **typed contract** ([`core/contracts.py`](arbiter/core/contracts.py)) — read that file first; the rest of the platform is implementations of those interfaces.
 
 ## Three design choices worth your attention
 

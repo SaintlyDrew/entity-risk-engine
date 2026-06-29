@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from detection_platform.consolidate.consolidate import consolidate
-from detection_platform.core.contracts import Signal, SignalKind
+from arbiter.consolidate.consolidate import consolidate
+from arbiter.core.contracts import Signal, SignalKind
 
 AS_OF = datetime(2026, 3, 1)
 

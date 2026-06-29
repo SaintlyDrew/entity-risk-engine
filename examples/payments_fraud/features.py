@@ -14,8 +14,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-from detection_platform.core.contracts import FeatureView
-from detection_platform.features.pointintime import within_window, zscore
+from arbiter.core.contracts import FeatureView
+from arbiter.features.pointintime import within_window, zscore
 
 
 @dataclass(frozen=True)
@@ -36,7 +36,7 @@ def load_txns(path: str | Path) -> list[Txn]:
 
 
 class PaymentsFeatureProvider:
-    """A :class:`~detection_platform.core.contracts.FeatureProvider` for card fraud."""
+    """A :class:`~arbiter.core.contracts.FeatureProvider` for card fraud."""
 
     WINDOW_DAYS = 1  # a 24h velocity window
 

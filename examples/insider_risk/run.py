@@ -15,13 +15,13 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from detection_platform.ingest.adapters import (
+from arbiter.ingest.adapters import (
     load_csv_rule_fires,
     load_jsonl_signals,
     normalize,
 )
-from detection_platform.pipeline import PipelineResult, run_pipeline
-from detection_platform.rank.sink import JsonlCaseSink, SqliteCaseSink
+from arbiter.pipeline import PipelineResult, run_pipeline
+from arbiter.rank.sink import JsonlCaseSink, SqliteCaseSink
 
 from .features import InsiderFeatureProvider, load_events
 

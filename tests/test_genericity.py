@@ -9,8 +9,8 @@ the ``CaseSink`` egress boundary.
 
 from __future__ import annotations
 
-from detection_platform.core.contracts import Tier
-from detection_platform.rank.sink import InMemoryCaseSink
+from arbiter.core.contracts import Tier
+from arbiter.rank.sink import InMemoryCaseSink
 from examples.insider_risk.run import run as run_insider
 from examples.payments_fraud.run import run as run_payments
 

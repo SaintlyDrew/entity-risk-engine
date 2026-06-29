@@ -1,6 +1,6 @@
 {
   "domain": "insider_risk",
-  "description": "Insider-risk instantiation of the detection platform. Domain lives in config; the platform code is unchanged.",
+  "description": "Insider-risk instantiation of Arbiter. Domain lives in config; the engine code is unchanged.",
   "signal_points": {
     "rule": 35,
     "ingested": 30,

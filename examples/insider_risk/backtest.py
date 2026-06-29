@@ -15,13 +15,13 @@ from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
 
-from detection_platform.ingest.adapters import (
+from arbiter.ingest.adapters import (
     load_csv_rule_fires,
     load_jsonl_signals,
     normalize,
 )
-from detection_platform.pipeline import run_pipeline
-from detection_platform.sandbox.backtest import compare, evaluate, walk_forward
+from arbiter.pipeline import run_pipeline
+from arbiter.sandbox.backtest import compare, evaluate, walk_forward
 
 from .features import InsiderFeatureProvider, load_events
 

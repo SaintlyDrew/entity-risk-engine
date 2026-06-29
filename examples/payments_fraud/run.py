@@ -14,9 +14,9 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from detection_platform.ingest.adapters import load_jsonl_signals
-from detection_platform.models.detector import LinearModel, ModelDetector
-from detection_platform.pipeline import PipelineResult, run_pipeline
+from arbiter.ingest.adapters import load_jsonl_signals
+from arbiter.models.detector import LinearModel, ModelDetector
+from arbiter.pipeline import PipelineResult, run_pipeline
 
 from .features import PaymentsFeatureProvider, load_txns
 

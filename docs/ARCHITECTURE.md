@@ -1,6 +1,6 @@
 # Architecture
 
-A detection platform turns **many weak signals about a subject** into **a small, ranked
+Arbiter turns **many weak signals about a subject** into **a small, ranked
 set of cases a human can act on** — and does it the same way across domains (insider risk,
 payments fraud, AML, abuse). This document explains how the pieces fit and *why* the
 boundaries are where they are.
@@ -29,7 +29,7 @@ ingest → consolidate → features → score → rank → observe
 
 ## The contracts are the spine
 
-Everything crosses a seam as a typed record defined in [`core/contracts.py`](../detection_platform/core/contracts.py):
+Everything crosses a seam as a typed record defined in [`core/contracts.py`](../arbiter/core/contracts.py):
 `Signal`, `FeatureView`, `SubjectRecord`, `Score`, `Case`, plus the `Detector`,
 `FeatureProvider`, `Judge`, `Ranker`, and `CaseSink` protocols. A new implementation of
 any seam (a graph-backed feature store, a real ML model, an enterprise case manager) is a

@@ -11,8 +11,8 @@ from datetime import datetime
 
 import pytest
 
-from detection_platform.core.contracts import Detector, FeatureView, SignalKind
-from detection_platform.models.detector import (
+from arbiter.core.contracts import Detector, FeatureView, SignalKind
+from arbiter.models.detector import (
     FeatureContractError,
     LinearModel,
     ModelDetector,

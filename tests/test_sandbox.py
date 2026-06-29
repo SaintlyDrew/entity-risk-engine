@@ -13,8 +13,8 @@ from datetime import datetime
 from pathlib import Path
 
 import examples.insider_risk.run as _insider_run
-from detection_platform.core.contracts import Case, Tier
-from detection_platform.sandbox.backtest import compare, evaluate, walk_forward
+from arbiter.core.contracts import Case, Tier
+from arbiter.sandbox.backtest import compare, evaluate, walk_forward
 from examples.insider_risk.backtest import _cases
 from examples.insider_risk.run import run as run_insider
 
